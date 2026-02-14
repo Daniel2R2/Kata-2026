@@ -14,8 +14,8 @@ import net.serenitybdd.core.Serenity;
 import ui.models.UserCredentials;
 
 /**
- * Resolves authentication properties used by UI/API login flows.
- * Fails fast when required credentials are missing.
+ * Acá centralizamos las credenciales para login UI y API.
+ * Si falta algo, fallamos de una con un mensaje claro.
  */
 public final class AuthProperties {
 
@@ -28,38 +28,38 @@ public final class AuthProperties {
     }
 
     /**
-     * @return configured authentication email.
+     * @return correo configurado para autenticación.
      */
     public static String email() {
         return requiredProperty(AUTH_EMAIL_KEY);
     }
 
     /**
-     * @return configured authentication password.
+     * @return clave configurada para autenticación.
      */
     public static String password() {
         return requiredProperty(AUTH_PASSWORD_KEY);
     }
 
     /**
-     * @return reusable credentials object for valid login actions.
+     * @return objeto de credenciales listo para login válido.
      */
     public static UserCredentials configuredUserCredentials() {
         return new UserCredentials(DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME, email(), password());
     }
 
     /**
-     * @return deterministic invalid password based on configured secret.
+     * @return contraseña inválida basada en la clave real.
      */
     public static String invalidPassword() {
         return password() + "_invalid";
     }
 
     /**
-     * Ensures that configured credentials can log in.
-     * Tries login first, then signup + login when the user does not exist.
+     * Asegura que el usuario configurado sí puede loguearse.
+     * Primero intenta login, y si no existe, hace signup y vuelve a loguear.
      *
-     * @param authService auth service used to perform API requests.
+     * @param authService servicio de auth para llamadas API.
      */
     public static void ensureConfiguredUserCanLogin(AuthService authService) {
         UserCredentials credentials = configuredUserCredentials();
@@ -93,10 +93,10 @@ public final class AuthProperties {
     }
 
     /**
-     * Reads a required Serenity property and validates it is not blank.
+     * Lee una propiedad obligatoria y valida que no venga vacía.
      *
-     * @param key property name.
-     * @return trimmed property value.
+     * @param key nombre de la propiedad.
+     * @return valor limpio.
      */
     private static String requiredProperty(String key) {
         String value = readFromSerenity(key)
@@ -107,7 +107,7 @@ public final class AuthProperties {
 
         if (value == null || value.isBlank()) {
             throw new IllegalStateException(
-                    "Missing required property '" + key + "'. "
+                    "Falta la propiedad obligatoria '" + key + "'. "
                             + "Configura serenity.conf o usa -D" + key + "=\"...\"."
             );
         }
@@ -115,7 +115,7 @@ public final class AuthProperties {
     }
 
     /**
-     * Reads property from Serenity environment variables.
+     * Busca la propiedad en variables que ya cargó Serenity.
      */
     private static Optional<String> readFromSerenity(String key) {
         String value = Serenity.environmentVariables().getValue(key);
@@ -129,7 +129,7 @@ public final class AuthProperties {
     }
 
     /**
-     * Reads property from JVM system properties.
+     * Busca la propiedad por `-D`.
      */
     private static Optional<String> readFromSystemProperty(String key) {
         String value = System.getProperty(key);
@@ -140,7 +140,7 @@ public final class AuthProperties {
     }
 
     /**
-     * Reads property from serenity config files located on classpath.
+     * Busca la propiedad en `serenity.conf` o `serenity.properties`.
      */
     private static Optional<String> readFromClasspathFile(String resourceName, String key) {
         try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName)) {

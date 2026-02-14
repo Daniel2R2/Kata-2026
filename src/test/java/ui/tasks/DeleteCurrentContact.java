@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ui.pages.ContactDetailsPage;
 
 /**
- * Task Screenplay para eliminar el contacto visible en detalle.
+ * Tarea Screenplay para eliminar el contacto visible en detalle.
  * Incluye aceptación explícita del diálogo de confirmación del navegador.
  */
 public class DeleteCurrentContact implements Task {

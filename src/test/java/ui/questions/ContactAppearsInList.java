@@ -8,7 +8,7 @@ import ui.models.Contact;
 import ui.pages.ContactsPage;
 
 /**
- * Question que valida presencia de un contacto en el listado UI por nombre completo.
+ * Pregunta que valida si un contacto aparece en el listado por nombre completo.
  */
 public class ContactAppearsInList implements Question<Boolean> {
 

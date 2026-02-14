@@ -8,7 +8,7 @@ import ui.models.Contact;
 import ui.pages.ContactsPage;
 
 /**
- * Question que confirma ausencia de un contacto en el listado UI.
+ * Pregunta que confirma que un contacto no aparece en el listado UI.
  */
 public class ContactDoesNotAppearInList implements Question<Boolean> {
 

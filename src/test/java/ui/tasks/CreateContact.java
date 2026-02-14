@@ -17,7 +17,7 @@ import ui.models.Contact;
 import ui.pages.ContactsPage;
 
 /**
- * Task Screenplay para crear contactos desde la UI.
+ * Tarea Screenplay para crear contactos desde la UI.
  * Soporta opcionalidad de email y teléfono para pruebas negativas/positivas.
  */
 public class CreateContact implements Task {

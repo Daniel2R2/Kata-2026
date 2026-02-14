@@ -14,8 +14,8 @@ import ui.models.Contact;
 import ui.models.UserCredentials;
 
 /**
- * Central test data factory.
- * Produces human-friendly data and avoids cross-scenario dependencies.
+ * Fábrica de datos para las pruebas.
+ * Todo sale con formato humano y cada escenario queda independiente.
  */
 public final class DataFactory {
 
@@ -95,21 +95,21 @@ public final class DataFactory {
     }
 
     /**
-     * Generates a human-style unique email.
+     * Genera un correo natural y único.
      */
     public static String uniqueEmail() {
         return nextEmailForPerson(nextPerson());
     }
 
     /**
-     * Returns the default test password.
+     * @return contraseña base de pruebas.
      */
     public static String defaultPassword() {
         return DEFAULT_PASSWORD;
     }
 
     /**
-     * Creates signup/login credentials with humanized values.
+     * Crea credenciales para signup/login con datos realistas.
      */
     public static UserCredentials uniqueUserCredentials() {
         PersonName person = nextPerson();
@@ -122,7 +122,7 @@ public final class DataFactory {
     }
 
     /**
-     * Creates API signup payload with humanized credentials.
+     * Crea el payload de signup para API.
      */
     public static SignupRequest uniqueSignupRequest() {
         UserCredentials userCredentials = uniqueUserCredentials();
@@ -135,7 +135,7 @@ public final class DataFactory {
     }
 
     /**
-     * Builds a full UI contact with all form fields.
+     * Arma un contacto UI con todos los campos del formulario.
      */
     public static Contact validUiContact() {
         PersonName person = nextPerson();
@@ -156,7 +156,7 @@ public final class DataFactory {
     }
 
     /**
-     * Builds updated UI contact values for edit tests.
+     * Arma datos nuevos para pruebas de edición.
      */
     public static Contact updatedUiContact() {
         PersonName person = nextPerson();
@@ -177,7 +177,7 @@ public final class DataFactory {
     }
 
     /**
-     * Builds a complete API contact payload for contact creation.
+     * Arma payload completo para crear contacto por API.
      */
     public static ContactRequest validApiContact() {
         Contact uiContact = validUiContact();
@@ -185,7 +185,7 @@ public final class DataFactory {
     }
 
     /**
-     * Builds a complete API contact payload for contact updates.
+     * Arma payload completo para actualizar contacto por API.
      */
     public static ContactRequest updatedApiContact() {
         Contact uiContact = updatedUiContact();
@@ -193,7 +193,7 @@ public final class DataFactory {
     }
 
     /**
-     * Builds an intentionally incomplete payload for negative validations.
+     * Arma payload incompleto para escenarios negativos.
      */
     public static ContactRequest incompleteApiContactMissingLastName() {
         ContactRequest contactRequest = new ContactRequest();
@@ -237,8 +237,8 @@ public final class DataFactory {
     }
 
     /**
-     * Generates email in format name.lastname.role[.area]@domain.
-     * Adds a short timestamp only when base combinations are exhausted.
+     * Genera correos tipo nombre.apellido.rol[.area]@dominio.
+     * Solo mete timestamp corto cuando ya se gastaron combinaciones base.
      */
     private static String nextEmailForPerson(PersonName person) {
         int index = EMAIL_SEQUENCE.getAndIncrement();

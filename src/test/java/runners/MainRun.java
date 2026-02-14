@@ -5,21 +5,22 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 
 /**
-    Usa el runner principal de Cucumber + Serenity y devuelve exit code 1 si falla.
+ * Punto de entrada para correr la suite desde el IDE con un click.
+ * Si algo falla, sale con código 1.
  */
 public final class MainRun {
 
     /**
-      evita instanciacion.
+     * Clase utilitaria, no se instancia.
      */
     private MainRun() {
     }
 
     /**
-     Ejecuta ContactListTestSuite.
-     Opcional: si se recibe un argumento, se aplica como filtro de tags de Cucumber.
-     
-      @param args args[0] opcional para tags, ejemplo: "@smoke and @api"
+     * Ejecuta `ContactListTestSuite`.
+     * Si llega un argumento, se usa como filtro de tags de Cucumber.
+     *
+     * @param args args[0] opcional, por ejemplo: "@smoke and @api"
      */
     public static void main(String[] args) {
         if (args != null && args.length > 0 && args[0] != null && !args[0].isBlank()) {

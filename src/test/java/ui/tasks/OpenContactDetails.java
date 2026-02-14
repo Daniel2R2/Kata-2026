@@ -13,7 +13,7 @@ import ui.models.Contact;
 import ui.pages.ContactsPage;
 
 /**
- * Task Screenplay para abrir detalle de un contacto desde la tabla.
+ * Tarea Screenplay para abrir detalle de un contacto desde la tabla.
  */
 public class OpenContactDetails implements Task {
 

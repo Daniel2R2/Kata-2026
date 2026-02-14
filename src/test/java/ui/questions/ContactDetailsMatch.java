@@ -6,7 +6,7 @@ import ui.models.Contact;
 import ui.pages.ContactDetailsPage;
 
 /**
- * Question que compara datos visibles en detalle de contacto contra un modelo esperado.
+ * Pregunta que compara los datos del detalle contra el contacto esperado.
  */
 public class ContactDetailsMatch implements Question<Boolean> {
 
@@ -64,7 +64,7 @@ public class ContactDetailsMatch implements Question<Boolean> {
     }
 
     /**
-     * Only enforces exact match when expected value is provided.
+     * Solo valida coincidencia exacta cuando sí viene valor esperado.
      */
     private boolean optionalMatches(String expected, String actual) {
         if (expected == null || expected.isBlank()) {

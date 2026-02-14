@@ -14,7 +14,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import ui.pages.LoginPage;
 
 /**
- * Task Screenplay para autenticarse desde la pantalla de login.
+ * Tarea Screenplay para autenticarse desde la pantalla de login.
  */
 public class Login implements Task {
 

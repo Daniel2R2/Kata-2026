@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Question;
 import ui.pages.ContactsPage;
 
 /**
- * Question que confirma visibilidad funcional del listado de contactos.
+ * Pregunta que confirma si el listado de contactos está visible.
  */
 public class ContactListIsVisible implements Question<Boolean> {
 

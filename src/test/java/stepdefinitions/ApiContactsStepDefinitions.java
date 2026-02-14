@@ -247,7 +247,7 @@ public class ApiContactsStepDefinitions {
     }
 
     /**
-     * Validates that all populated fields in the expected payload are returned unchanged by the API.
+     * Verifica que los campos enviados en el payload queden iguales en la respuesta.
      */
     private void assertContactMatchesResponse(ContactRequest expectedContact, Response response) {
         assertThat(response.jsonPath().getString("firstName")).isEqualTo(expectedContact.getFirstName());

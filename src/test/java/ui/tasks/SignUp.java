@@ -15,7 +15,7 @@ import ui.models.UserCredentials;
 import ui.pages.SignupPage;
 
 /**
- * Task Screenplay para registro de usuario por UI.
+ * Tarea Screenplay para registro de usuario por UI.
  */
 public class SignUp implements Task {
 

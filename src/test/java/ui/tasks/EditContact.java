@@ -23,8 +23,8 @@ import ui.pages.ContactDetailsPage;
 import ui.pages.EditContactPage;
 
 /**
- * Task Screenplay para edición de contacto.
- * Espera carga inicial de datos antes de sobrescribir para evitar condiciones de carrera.
+ * Tarea Screenplay para editar un contacto.
+ * Espera a que carguen los datos actuales antes de escribir encima.
  */
 public class EditContact implements Task {
 
@@ -102,8 +102,8 @@ public class EditContact implements Task {
     }
 
     /**
-     * Clears and updates optional field when value is provided.
-     * If value is blank, the field stays cleared.
+     * Limpia y actualiza un campo opcional si viene valor.
+     * Si llega vacío, lo deja limpio.
      */
     private void setOptionalField(List<Performable> steps, Target field, String value) {
         if (value == null) {
