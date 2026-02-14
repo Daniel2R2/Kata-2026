@@ -51,7 +51,3 @@ Suite de automatizacion UI + API para Contact List App con Serenity BDD, Cucumbe
   - `@bug`
   - `@known_bug`
 
-## Entrega en ZIP
-- Antes de comprimir, limpia artefactos:
-  - `mvn --% clean`
-- Verifica que no se incluya `target/` ni carpetas de IDE (controlado por `.gitignore`).
