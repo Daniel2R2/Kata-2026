@@ -12,9 +12,8 @@ Suite de automatizacion UI + API para Contact List App con Serenity BDD, Cucumbe
   - `auth.email`
   - `auth.password`
 - Estas propiedades estan definidas en `src/test/resources/serenity.conf`.
-- Puedes sobreescribirlas por consola en cualquier ejecucion:
-  - `mvn --% clean verify -Dauth.email="tu_correo@dominio.com" -Dauth.password="tu_password"`
-
+- Puedes sobreescribirlas por consola en cualquier ejecucion
+  
 ## Ejecucion (PowerShell)
 - Suite completa:
   - `mvn --% clean verify`
